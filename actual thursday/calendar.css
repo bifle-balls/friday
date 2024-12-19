@@ -1,0 +1,201 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.calendar-container {
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    background-color: #16a085;
+    color: white;
+    padding: 10px 0;
+    margin: 0 0 20px;
+    font-size: 24px;
+    border-radius: 10px 10px 0 0;
+}
+
+.navigation {
+    margin-bottom: 20px;
+}
+
+.navigation a {
+    margin: 0 15px;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.navigation a:hover {
+    background-color: #2980b9;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 15px;
+    width: 14%; /* Ensure each cell is consistent in size */
+}
+
+th {
+    background-color: #34495e;
+    color: white;
+    font-size: 16px;
+}
+
+td {
+    background-color: #ecf0f1;
+    font-size: 14px;
+}
+
+/* Available Cells */
+td.available {
+    background-color: #28a745; /* Green for available */
+}
+
+td.available button {
+    background-color: #28a745; /* Same shade for the button */
+    color: white;
+}
+
+td.available button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+/* Occupied Cells */
+td.occupied {
+    background-color: #dc3545; /* Red for occupied */
+    color: white;
+    font-weight: bold;
+    position: relative;
+}
+
+td.occupied button {
+    background-color: #dc3545; /* Same shade for the button */
+    color: white;
+}
+
+td.occupied button:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+/* Button styles */
+td button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+/* Hoverable available cells */
+td.na-cell {
+    cursor: pointer;
+    background-color: #f0f0f0;
+    transition: background-color 0.3s;
+}
+
+td.na-cell:hover {
+    background-color: #e0e0e0;
+}
+
+/* Appointment details inside occupied cells */
+td .appointment-detail {
+    display: none;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px;
+    font-size: 12px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+td.occupied:hover .appointment-detail {
+    display: block;
+    background-color: #a5392d;
+}
+
+.appointment-details {
+    margin: 20px auto;
+    padding: 15px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 90%;
+    text-align: left;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.appointment-details h3 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.appointment-details ul {
+    list-style: none;
+    padding: 0;
+}
+
+.appointment-details li {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #555;
+}
+
+.header-and-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+
+.header-and-form h3 {
+    margin: 1;
+    color: #2C3E50;
+    font-size: 25px;
+}
+
+.header-and-form form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    text-align: right;
+}
+
+.dashboard-btn {
+    margin: 0 15px;
+    padding: 10px 20px;
+    background-color: #133d87;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    display: inline-block;
+}
+
+.dashboard-btn:hover {
+    background-color: #0d2960;
+}

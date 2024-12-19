@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="patient_registry.css">
+    <title>Patient Registry</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+        <h1>Patient Registry</h1>
+            <div class ="bruh-button">
+                <a href="dashboard.php">Back to Dashboard</a>
+            </div>
+        </div>
+        <form action="patient_registry.php" method="POST">
+            <div class="form-group">
+                <label for="registryDate">Date of Registry:</label>
+                <input type="date" id="registryDate" name="registryDate" required>
+            </div>
+
+            <div class="name-section">
+                <div class="form-group">
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="givenName">Given Name:</label>
+                    <input type="text" id="givenName" name="givenName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="middleName">Middle Name:</label>
+                    <input type="text" id="middleName" name="middleName" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="birthday">Date of Birth:</label>
+                <input type="date" id="birthday" name="birthday" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email: (Optional)</label> 
+                <input type="email" id="email" name="email">
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address: (Optional)</label>
+                <input type="text" id="address" name="address">
+            </div>
+
+            <div class="form-group">
+                <label for="mobileNumber">Mobile Number:</label>
+                <input type="tel" id="mobileNumber" name="mobileNumber" placeholder="09*********" pattern="^[0-9]{11}$" required>
+            </div>
+
+            <div class="apt-section">
+                <div class="form-group">
+                    <label for="appointmentDate">Appointment Schedule:</label>
+                    <input type="date" id="appointmentDate" name="appointmentDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="startTime">Start Time:</label>
+                    <input type="time" id="appointmentStartTime" name="appointmentStartTime" required min="13:00" max="17:00">
+                    <p>Minimum is 1:00 PM</p>
+                </div>
+                <div class="form-group">
+                    <label for="endTime">End Time:</label>
+                    <input type="time" id="appointmentEndTime" name="appointmentEndTime" required min="13:30" max="17:30">
+                    <p>Maximum is 5:30 PM</p>
+                </div>                
+            </div>
+
+            <h2>Services:</h2>
+            <table border="1" cellpadding="10">
+                <thead>
+                    <tr>
+                        <th>Diagnosis</th>
+                        <th>Periodontics (Oral Prophylaxis)</th>
+                        <th>Oral Surgery</th>
+                        <th>Restorative</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <label><input type="checkbox" name="services[]" value="Diagnosis: Consultation" class="services"> Consultation</label><br><hr>
+                            <label><input type="checkbox" name="services[]" value="+ Medical Certificate" class="services"> w/ Medical Certificate</label>
+                        </td>
+                        <td>
+                            <label><input type="checkbox" name="services[]" value="Periodontics (Oral Prohylaxis): Light-Moderate" class="services"> Light-Moderate</label><br>
+                            <label><input type="checkbox" name="services[]" value="Periodontics (Oral Prohylaxis): Heavy" class="services"> Heavy</label><br><hr>
+                            <label><input type="checkbox" name="services[]" value="+ Fluoride Treatment" class="services"> w/ Fluoride Treatment</label>
+                        </td>
+                        <td>
+                            <label><input type="checkbox" name="services[]" value="Oral Surgery: Simple Extraction" class="services"> Simple Extraction</label><br>
+                            <label><input type="checkbox" name="services[]" value="Oral Surgery: Complicated Extraction" class="services"> Complicated Extraction</label><br>
+                            <label><input type="checkbox" name="services[]" value="Oral Surgery: Odontectomy" class="services"> Odontectomy</label>
+                        </td>
+                        <td>
+                            <label><input type="checkbox" name="services[]" value="Restorative: Temporary" class="services">Temporary</label><br>
+                            <label><input type="checkbox" name="services[]" value="Restorative: Composite" class="services">Composite</label><br>
+                            <label><input type="checkbox" name="services[]" value="Restorative: Additional Surface" class="services">Additional Surface</label><br>
+                            <label><input type="checkbox" name="services[]" value="Restorative: Pit & Fissure Sealant" class="services">Pit & Fissure Sealant</label>
+                        </td>
+                    </tr>
+                </tbody>
+                <thead>
+                    <tr>
+                        <th>Repair</th>
+                        <th>Prosthodontics</th>
+                        <th>Orthodontics</th>
+                        <th>Others</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <label><input type="checkbox" name="services[]" value="Repair: Crack" class="services"> Crack</label><br>
+                            <label><input type="checkbox" name="services[]" value="Repair: Broken with Impression" class="services"> Broken with Impression</label><br>
+                            <hr><div>Missing Pontic:</div><hr>
+                            <label><input type="checkbox" name="services[]" value="Repair (Missing Pontic): Plastic" class="services"> Plastic</label><br>
+                            <label><input type="checkbox" name="services[]" value="Repair (Missing Pontic): Porcelain" class="services"> Porcelain</label>
+                        </td>
+                        <td>
+                            <hr>Jacket Crown Per Unit<hr>
+                            <label><input type="checkbox" name="services[]" value="Prosthodontics (Jacket Crown per Unit): Plastic" class="services"> Plastic</label><br>
+                            <label><input type="checkbox" name="services[]" value="Prosthodontics (Jacket Crown per Unit): Porcelain Simple Metal" class="services"> Porcelain Simple Metal</label><br>
+                            <label><input type="checkbox" name="services[]" value="Prosthodontics (Jacket Crown per Unit): Porcelain Tilite" class="services"> Porcelain Tilite</label><br>
+                            <label><input type="checkbox" name="services[]" value="Prosthodontics (Jacket Crown per Unit): E-max" class="services"> E-max</label><br>
+                            <label><input type="checkbox" name="services[]" value="Prosthodontics (Jacket Crown per Unit): Zirconia" class="services"> Zirconia</label><br><hr>
+                            <label><input type="checkbox" name="services[]" value="Prosthodontics: Re-cementation" class="services"> Re-cementation</label>
+                        </td>
+                        <td>
+                            <label><input type="checkbox" name="services[]" value="Orthodintics: Conventional Metal Brackets" class="services"> Conventional Metal Brackets</label><br>
+                            <label><input type="checkbox" name="services[]" value="Orthodintics: Ceramic Brackets" class="services"> Ceramic Brackets</label><br>
+                            <label><input type="checkbox" name="services[]" value="Orthodintics: Self-Ligating Metal Brackets" class="services"> Self-Ligating Metal Brackets</label><br>
+                            <label><input type="checkbox" name="services[]" value="Orthodintics: Functional Retainer" class="services"> Functional Retainer</label><br>
+                            <label><input type="checkbox" name="services[]" value="Orthodintics: Retainer with Design" class="services"> Retainer with Design</label><br>
+                            <label><input type="checkbox" name="services[]" value="Orthodintics: Ortho Kit" class="services"> Ortho Kit</label><br>
+                            <label><input type="checkbox" name="services[]" value="Orthodintics: Ortho Wax" class="services"> Ortho Wax</label><br>
+                        </td>
+                        <td>
+                            <label><input type="checkbox" name="services[]" value="Others: Teeth Whitening" class="services"> Teeth Whitening</label><br>
+                            <label><input type="checkbox" name="services[]" value="Others: Reline" class="services"> Reline</label><br>
+                            <label><input type="checkbox" name="services[]" value="Others: Rebase" class="services"> Rebase</label>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Partial Denture per Arch (Upper or Lower)</h3>
+            <table border="1" cellpadding="10">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Pontic Count</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <label>
+                                <input type="checkbox" name="partial_denture[Stayplate_Plastic]" value="Stayplate Plastic" class="partial_denture"> Stayplate Plastic
+                            </label>
+                        </td>
+                        <td>
+                            <select name="partial_denture[Stayplate_Plastic_pontic_count]">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>
+                                <input type="checkbox" name="partial_denture[Stayplate_Porcelain]" value="Stayplate Porcelain" class="partial_denture"> Stayplate Porcelain
+                            </label>
+                        </td>
+                        <td>
+                            <select name="partial_denture[Stayplate_Porcelain_pontic_count]">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>
+                                <input type="checkbox" name="partial_denture[One_piece_Plastic]" value="One-piece Plastic" class="partial_denture"> One-piece Plastic
+                            </label>
+                        </td>
+                        <td>
+                            <select name="partial_denture[One_piece_Plastic_pontic_count]">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>
+                                <input type="checkbox" name="partial_denture[One_piece_Porcelain]" value="One-piece Porcelain" class="partial_denture"> One-piece Porcelain
+                            </label>
+                        </td>
+                        <td>
+                            <select name="partial_denture[One_piece_Porcelain_pontic_count]">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label><input type="checkbox" name="partial_denture[Flexite]" value="Flexite" class="partial_denture"> Flexite</label>
+                        </td>
+                        <td>
+                            <select name="partial_denture[Flexite_pontic_count]">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Full Denture per Arch (Upper AND/OR Lower)</h3>
+            <table border="1" cellpadding="10">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Range</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <label>
+                                <input type="checkbox" name="full_denture[Stayplate_Plastic]" value="Stayplate Plastic" class="full_denture"> Stayplate Plastic
+                            </label>
+                        </td>
+                        <td>
+                            <select name="full_denture[Stayplate_Plastic_range]">
+                                <option value="Upper">Upper</option>
+                                <option value="Lower">Lower</option>
+                                <option value="Upper AND Lower">Upper AND Lower</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>
+                                <input type="checkbox" name="full_denture[Stayplate_Porcelain]" value="Stayplate Porcelain" class="full_denture"> Stayplate Porcelain
+                            </label>
+                        </td>
+                        <td>
+                            <select name="full_denture[Stayplate_Porcelain_range]">
+                                <option value="Upper">Upper</option>
+                                <option value="Lower">Lower</option>
+                                <option value="Upper AND Lower">Upper AND Lower</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>
+                                <input type="checkbox" name="full_denture[Ivocap]" value="Ivocap" class="full_denture"> Ivocap
+                            </label>
+                        </td>
+                        <td>
+                            <select name="full_denture[Ivocap_range]">
+                                <option value="Upper">Upper</option>
+                                <option value="Lower">Lower</option>
+                                <option value="Upper AND Lower">Upper AND Lower</option>
+                            </select>
+                        </td>
+                    </tr>   
+                    <tr>
+                        <td>
+                            <label>
+                                <input type="checkbox" name="full_denture[Thermosen]" value="Thermosen" class="full_denture"> Thermosen
+                            </label>
+                        </td>
+                        <td>
+                            <select name="full_denture[Thermosen_range]">
+                                <option value="Upper">Upper</option>
+                                <option value="Lower">Lower</option>
+                                <option value="Upper AND Lower">Upper AND Lower</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="form-group">
+                <label for="addInfo">Additional Info:</label>
+                <textarea id="addInfo" name="addInfo"></textarea>
+            </div>
+
+            <div class="button-container">
+                <button type="submit">Register</button>
+            </div>
+        </form>
+        <script src="patient_registry.js"></script>
+    </div>
+</body>
+</html>
